@@ -53,10 +53,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-const webview = document.querySelector('webview');
-webview.addEventListener('dom-ready', () => {
-  if (!app.isPackaged) {
-    webview.openDevTools();
-  }
-});
