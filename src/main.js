@@ -1,4 +1,3 @@
-// アプリケーション作成用のモジュールを読み込み
 const {app, BrowserWindow} = require('electron');
 
 let mainWindow;
@@ -36,33 +35,28 @@ function createWindow() {
         position: static !important;
     }
   */}).toString().match(/(?:\/\*(?:[\s\S]*?)\*\/)/).pop().replace(/^\/\*/, "").replace(/\*\/$/, "");
-    
 
   mainWindow.webContents.on('did-finish-load', function() {
      mainWindow.webContents.insertCSS(injectCSS);
   });
-
-  //mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 }
 
+app.on('ready', createWindow);
+
+app.on('window-all-closed', () => { app.quit(); });
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow();
+  }
+});
+
 const webview = document.querySelector('webview');
 webview.addEventListener('dom-ready', () => {
   if (!app.isPackaged) {
     webview.openDevTools();
-  }
-});
-
-app.on('ready', createWindow);
-
-app.on('window-all-closed', () => {
-  app.quit();
-});
-app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
   }
 });
