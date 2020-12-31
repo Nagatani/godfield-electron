@@ -1,7 +1,7 @@
 {
   "name": "godfield-electron",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "https://godfield.net/  を非公式Desktop Appにする",
   "main": "./src/main.js",
   "scripts": {
     "start": "npx electron ./src",
