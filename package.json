@@ -1,0 +1,16 @@
+{
+  "name": "godfield-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "npx electron ./src",
+    "build-macos": "npx electron-packager ./src GodField --platform=darwin --arch=x64 --overwrite",
+    "build-windows": "npx electron-packager ./src GodField --platform=win32 --arch=x64 --overwrite"
+  },
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-packager": "^15.2.0"
+  },
+  "private": true
+}
