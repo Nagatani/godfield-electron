@@ -1,4 +1,4 @@
-GodField-darwin-x64/
-node_modules/
-
 .DS_Store
+
+GodField-*/
+node_modules/
